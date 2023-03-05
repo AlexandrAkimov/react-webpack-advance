@@ -6,13 +6,13 @@ interface IMainPageProps {
 }
 
 const MainPage: React.FC<IMainPageProps> = (props) => {
-  const { t } = useTranslation('main')
+  const { t } = useTranslation('main');
   return (
     <div>
       {t('Главная страница')}
       {t('Еще текст')}
     </div>
-  )
+  );
 };
 
 export default MainPage;

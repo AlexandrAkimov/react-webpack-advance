@@ -1,14 +1,13 @@
-import './styles/index.scss'
-import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
-import { classNames } from "../shared/lib/classNames/classNames";
-import { AppRouter } from "./providers/router";
+import './styles/index.scss';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { FC, Suspense } from 'react';
+import { useTheme } from './providers/ThemeProvider/lib/useTheme';
+import { classNames } from '../shared/lib/classNames/classNames';
+import { AppRouter } from './providers/router';
 
-const App: React.FC = () => {
-
-  const { theme } = useTheme()
+const App: FC = () => {
+  const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
