@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import cls from './Navbar.module.scss';
+import * as React from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import cls from './Navbar.module.scss'
 
 interface INavbarProps {
   className?: string
@@ -15,4 +15,4 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => (
     </div>
 
   </div>
-);
+)
