@@ -1,7 +1,7 @@
 import './styles/index.scss'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { FC, Suspense } from 'react'
+import { FC, Suspense, useEffect } from 'react'
 import { PageLoader } from 'widgets/PageLoader'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 import { classNames } from '../shared/lib/classNames/classNames'
@@ -10,6 +10,11 @@ import { AppRouter } from './providers/router'
 const App: FC = () => {
   const { theme } = useTheme()
 
+  useEffect(() => {
+    if (Math.random() < 0.5) {
+      throw new Error('Error yopta')
+    }
+  }, [])
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback={PageLoader}>
