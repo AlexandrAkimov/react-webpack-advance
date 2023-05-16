@@ -17,6 +17,7 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "loki": "loki test -p 40123 --chromeDockerImage yukinying/chrome-headless-browser-stable:100.0.4896.127",
     "loki:approve": "npx loki approve",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "build-storybook": "build-storybook build -c ./config/storybook"
   },
   "keywords": [],
