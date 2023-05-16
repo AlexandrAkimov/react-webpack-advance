@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentStory, Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 import { PageLoader } from './PageLoader'
 
-const meta: Meta<typeof PageLoader> = {
+export default {
   title: 'Widget/PageLoader',
   component: PageLoader,
   tags: ['autodocs'],
@@ -13,14 +13,12 @@ const meta: Meta<typeof PageLoader> = {
   },
 }
 
-export default meta
-type Story = StoryObj<typeof PageLoader>;
+const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />
 
-export const Ligth: Story = {
-  args: {},
-}
+export const Light = Template.bind({})
+Light.args = {}
 
-export const Dark: Story = {
-  args: {},
-}
-Dark.decorators = [(Story) => ThemeDecorator(Story)(Theme.DARK)]
+export const Dark = Template.bind({})
+Dark.args = {}
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)]

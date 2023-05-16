@@ -10,14 +10,9 @@ import { AppRouter } from './providers/router'
 const App: FC = () => {
   const { theme } = useTheme()
 
-  useEffect(() => {
-    if (Math.random() < 0.5) {
-      throw new Error('Error yopta')
-    }
-  }, [])
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={PageLoader}>
+      <Suspense fallback={<PageLoader />}>
         <Navbar />
         <div className="content-page">
           <Sidebar />

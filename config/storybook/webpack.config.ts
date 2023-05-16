@@ -11,6 +11,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   }
 
+  config.resolve?.extensions?.push('.ts', '.tsx')
+  config.resolve?.modules?.push(paths.src)
+
   // eslint-disable-next-line no-param-reassign
   config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
@@ -24,8 +27,6 @@ export default ({ config }: {config: webpack.Configuration}) => {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   })
-  config.resolve?.modules?.push(paths.src)
-  config.resolve?.extensions?.push('.ts', '.tsx')
   config.module?.rules?.push(buildCssLoader(true))
   return config
 }
