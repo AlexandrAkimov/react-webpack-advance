@@ -1,8 +1,10 @@
-import './styles/index.scss'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { FC, Suspense, useEffect } from 'react'
+import {
+  FC, Suspense, useEffect, useState,
+} from 'react'
 import { PageLoader } from 'widgets/PageLoader'
+import { Modal } from 'shared/ui/Modal/Modal'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 import { classNames } from '../shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'

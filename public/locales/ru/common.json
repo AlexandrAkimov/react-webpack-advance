@@ -6,5 +6,11 @@
   "О сайте": "О сайте",
   "Язык": "Язык",
   "Короткий язык": "Ru",
-  "toggle": "переключить"
+  "toggle": "переключить",
+  "Войти": "Войти",
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit": {
+    " Deleniti facilis porro est dolore excepturi": {
+      " Distinctio autem nemo eos quia aspernatur soluta esse voluptate doloribus at eveniet, ratione nobis expedita corporis?": "rus lorem"
+    }
+  }
 }
