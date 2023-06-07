@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadvance_frontend_course=self.webpackChunkadvance_frontend_course||[]).push([[140],{"./public/locales/ru/translation.json":module=>{module.exports=JSON.parse('{"Язык":"Русский","Страница не найдена":"Страница не найдена"}')}}]);
