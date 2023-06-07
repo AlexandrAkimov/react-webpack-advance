@@ -18,6 +18,7 @@
     "test:ui": "loki test -p 40123 --chromeDockerImage yukinying/chrome-headless-browser-stable:100.0.4896.127",
     "test:ui:approve": "npx loki approve",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:approve": "npx loki --requireReference --reactUri file:./storybook-static approve",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
@@ -93,9 +94,6 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    "looks-same": {
-      "ignoreCaret": true
-    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
