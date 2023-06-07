@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkadvance_frontend_course=self.webpackChunkadvance_frontend_course||[]).push([[577],{"./public/locales/ru/main.json":module=>{module.exports=JSON.parse('{"Главная страница":"Главная страница","Еще текст":"еще текст"}')}}]);
