@@ -1,3 +1,4 @@
+import { useTheme } from 'app/providers/ThemeProvider'
 import React, {
   FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react'
@@ -22,6 +23,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
+  const { theme } = useTheme()
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -58,20 +60,20 @@ export const Modal: FC<ModalProps> = ({
     e.stopPropagation()
   }
   return (
-  // <Portal>
-    <div className={classNames(cls.Modal, mods, [className])}>
-      <div
-        className={cls.overlay}
-        onClick={closeHandler}
-      >
+    <Portal>
+      <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
         <div
-          className={cls.content}
-          onClick={onContentClick}
+          className={cls.overlay}
+          onClick={closeHandler}
         >
-          {children}
+          <div
+            className={cls.content}
+            onClick={onContentClick}
+          >
+            {children}
+          </div>
         </div>
       </div>
-    </div>
-  // </Portal>
+    </Portal>
   )
 }
