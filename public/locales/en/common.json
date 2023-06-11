@@ -12,5 +12,7 @@
     " Deleniti facilis porro est dolore excepturi": {
       " Distinctio autem nemo eos quia aspernatur soluta esse voluptate doloribus at eveniet, ratione nobis expedita corporis?": "en lorem"
     }
-  }
+  },
+  "increment": "increment",
+  "decrement": "decrement"
 }
