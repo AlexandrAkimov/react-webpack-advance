@@ -29,7 +29,7 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
         isOpen={isAuthModal}
         onClose={onToggleModal}
       >
-        {t('Lorem esse voluptate doloribus at eveniet, ratione nobis expedita corporis?')}
+        {t('Lorem')}
       </Modal>
     </div>
   )
