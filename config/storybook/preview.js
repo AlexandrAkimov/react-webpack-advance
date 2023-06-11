@@ -17,6 +17,7 @@ export const parameters = {
 }
 
 addDecorator(StyleDecorator)
+
 addDecorator(ThemeDecorator(Theme.LIGHT))
 addDecorator(SuspendedDecorator)
 addDecorator(RouterDecorator)
