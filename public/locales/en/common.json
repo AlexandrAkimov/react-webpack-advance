@@ -14,5 +14,7 @@
     }
   },
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Введите имя пользователя": "Enter username",
+  "Введите пароль": "Enter password"
 }

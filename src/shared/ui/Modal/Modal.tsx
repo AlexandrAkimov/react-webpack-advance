@@ -10,6 +10,7 @@ interface ModalProps {
   className?: string
   children?: ReactNode
   isOpen?: boolean
+  lazy?: boolean
   onClose?: () => void
 }
 
@@ -19,9 +20,10 @@ interface IKeyboardEvent {
 
 const ANIMATION_DELAY = 300
 export const Modal: FC<ModalProps> = ({
-  className, children, isOpen, onClose,
+  className, children, isOpen, onClose, lazy,
 }) => {
   const [isClosing, setIsClosing] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
   const { theme } = useTheme()
 
@@ -48,6 +50,12 @@ export const Modal: FC<ModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown)
     }
     return () => {
@@ -59,6 +67,11 @@ export const Modal: FC<ModalProps> = ({
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation()
   }
+
+  if (lazy && !isMounted) {
+    return null
+  }
+
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>

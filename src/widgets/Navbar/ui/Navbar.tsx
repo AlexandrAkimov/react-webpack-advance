@@ -1,3 +1,4 @@
+import { LoginModal } from 'features/AuthByUsername'
 import React, { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -12,8 +13,12 @@ interface INavbarProps {
 
 export const Navbar: React.FC<INavbarProps> = ({ className }) => {
   const [isAuthModal, setIsAuthModal] = useState(false)
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev)
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false)
+  }, [])
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true)
   }, [])
   const { t } = useTranslation('common')
   return (
@@ -21,16 +26,14 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
       <Button
         theme={ThemeButton.CLEAR_INVERTED}
         className={cls.links}
-        onClick={onToggleModal}
+        onClick={onShowModal}
       >
         {t('Войти')}
       </Button>
-      <Modal
+      <LoginModal
+        onClose={onCloseModal}
         isOpen={isAuthModal}
-        onClose={onToggleModal}
-      >
-        {t('Lorem')}
-      </Modal>
+      />
     </div>
   )
 }

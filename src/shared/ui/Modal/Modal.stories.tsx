@@ -19,7 +19,8 @@
 // export const Primary = Template.bind({})
 // Primary.args = {
 //   isOpen: true,
-//   children: 'Lorem',
+//   children: 'Lorem lihlihih hh ihiluiuj ojliji jljioljljlj ljl',
+//   lazy: true,
 // }
 
 // export const Dark = Template.bind({})
