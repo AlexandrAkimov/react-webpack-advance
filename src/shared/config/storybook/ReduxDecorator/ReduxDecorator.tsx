@@ -4,10 +4,12 @@ import { Story } from '@storybook/react'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import 'app/styles/index.scss'
 
-export const ReduxDecorator = (state: DeepPartial<StateSchema>) => function (story: () => Story) {
+export const ReduxDecorator = (
+  state: DeepPartial<StateSchema>,
+) => function (StoryComponent: Story) {
   return (
     <StoreProvider initialState={state}>
-      {story()}
+      <StoryComponent />
     </StoreProvider>
   )
 }

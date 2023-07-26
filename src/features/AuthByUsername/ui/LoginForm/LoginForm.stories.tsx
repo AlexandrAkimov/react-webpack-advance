@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
-import { LoginForm } from './LoginForm'
+import LoginForm from './LoginForm'
 
 export default {
   title: 'Features/LoginForm',
@@ -32,5 +32,5 @@ errorForm.decorators = [ReduxDecorator({
 export const loadingForm = Template.bind({})
 loadingForm.args = {}
 loadingForm.decorators = [ReduxDecorator({
-  loginForm: { username: 'admin', password: '123', isLoading: true },
+  loginForm: { isLoading: true },
 })]

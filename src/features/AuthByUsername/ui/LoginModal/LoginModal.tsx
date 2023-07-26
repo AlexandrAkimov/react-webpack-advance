@@ -1,7 +1,8 @@
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { PageLoader } from 'widgets/PageLoader'
+import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
 
 interface LoginModalProps {
   className?: string
@@ -15,6 +16,9 @@ export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) 
     onClose={onClose}
     lazy
   >
-    <LoginForm />
+    <Suspense fallback={<PageLoader />}>
+      <LoginFormAsync />
+    </Suspense>
+
   </Modal>
 )

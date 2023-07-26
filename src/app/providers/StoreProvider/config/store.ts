@@ -2,6 +2,7 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { loginReducer } from 'features/AuthByUsername'
+import { createReducerManager } from './reducerManager'
 import { StateSchema } from './StateSchema'
 
 export function createReduxStore(initialState: StateSchema) {
@@ -10,9 +11,16 @@ export function createReduxStore(initialState: StateSchema) {
     user: userReducer,
     loginForm: loginReducer,
   }
-  return configureStore<StateSchema>({
-    reducer: rootReducer,
+
+  const reducerManager = createReducerManager(rootReducer)
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   })
+
+  // @ts-ignore
+  store.reducerManager = reducerManager
+  return store
 }
