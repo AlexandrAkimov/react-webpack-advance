@@ -46,6 +46,7 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
+
       <Button
         theme={ThemeButton.CLEAR_INVERTED}
         className={cls.links}

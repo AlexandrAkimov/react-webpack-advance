@@ -47,7 +47,8 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
       // @ts-ignore
       store.reducerManager.remove('loginForm')
     }
-  }, [])
+    // @ts-ignore
+  }, [store.reducerManager])
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />
