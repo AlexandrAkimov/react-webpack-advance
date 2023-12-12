@@ -60,7 +60,6 @@ export const Navbar: React.FC<INavbarProps> = ({ className }) => {
           isOpen={isAuthModal}
         />
       )}
-
     </div>
   )
 }

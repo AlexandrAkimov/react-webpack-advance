@@ -39,6 +39,7 @@ module.exports = {
       namedComponents: 'arrow-function',
     }],
     'react/require-default-props': 'off',
+    'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'no-shadow': 'off',
     'import/no-extraneous-dependencies': 'off',

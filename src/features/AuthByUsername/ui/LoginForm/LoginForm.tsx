@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
@@ -10,6 +10,7 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
@@ -20,14 +21,15 @@ import cls from './LoginForm.module.scss'
 
 export interface LoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 const initialReducers: ReducerList = {
   loginForm: loginReducer,
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
-  const dispatch = useDispatch()
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+  const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const username = useSelector(getLoginUsername)
   const isLoading = useSelector(getLoginIsLoading)
@@ -42,9 +44,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value))
   }, [dispatch])
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }))
-  }, [dispatch, password, username])
+  const onLoginClick = useCallback(async () => {
+    const res = await dispatch(loginByUsername({ username, password }))
+    if (res.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [dispatch, password, username, onSuccess])
 
   return (
     <DynamicModuleLoader

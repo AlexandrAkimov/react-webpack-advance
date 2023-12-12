@@ -6,8 +6,8 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import MainIcon from 'shared/assets/icons/main.svg'
-import AbouteIcon from 'shared/assets/icons/aboute.svg'
+import { SidebarItemsList } from '../../model/items'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -36,22 +36,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-          className={cls.item}
-        >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t('Главная')}</span>
-        </AppLink>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-          className={cls.item}
-        >
-          <AbouteIcon className={cls.icon} />
-          <span className={cls.link}>{t('О сайте')}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem item={item} key={item.path} />
+        ))}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
