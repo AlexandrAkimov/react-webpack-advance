@@ -18,17 +18,17 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args
 export const Primary = Template.bind({})
 Primary.args = {}
 Primary.decorators = [ReduxDecorator({
-  loginForm: { username: 'admin', password: '123' },
+  loginForm: { username: 'admin', password: '123', isLoading: false },
 })]
 
 export const errorForm = Template.bind({})
 errorForm.args = {}
 errorForm.decorators = [ReduxDecorator({
-  loginForm: { username: 'admin', password: '123', error: 'Error text' },
+  loginForm: { username: 'admin', password: '123', error: 'Error text', isLoading: false },
 })]
 
 export const loadingForm = Template.bind({})
 loadingForm.args = {}
 loadingForm.decorators = [ReduxDecorator({
-  loginForm: { isLoading: true },
+  loginForm: { isLoading: true, username: '', password: '' },
 })]

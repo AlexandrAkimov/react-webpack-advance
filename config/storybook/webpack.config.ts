@@ -15,7 +15,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
   config.resolve?.modules?.push(paths.src)
 
   // eslint-disable-next-line no-param-reassign
-  config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+  // @ts-ignore
+  config!.module!.rules = config.module?.rules?.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i }
     }
@@ -30,6 +31,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
   config.module?.rules?.push(buildCssLoader(true))
   config.plugins?.push(new DefinePlugin({
     __IS_DEV__: true,
+    __API__: JSON.stringify(''),
   }))
   return config
 }

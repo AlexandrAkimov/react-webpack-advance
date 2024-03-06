@@ -25,4 +25,4 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), ReduxDecorator({})]
 export const AuthNavbar = Template.bind({})
 AuthNavbar.args = {}
 
-AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), ReduxDecorator({ user: { authData: {} } })]
+AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), ReduxDecorator({ user: {} })]

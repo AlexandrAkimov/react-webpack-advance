@@ -14,11 +14,11 @@ export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
   return (
     <AppLink
       theme={AppLinkTheme.SECONDARY}
-      to={item.path}
+      to={item?.path || ''}
       className={cls.item}
     >
-      <item.icon className={cls.icon} />
-      <span className={cls.link}>{t(item.text)}</span>
+      {item && <item.icon className={cls.icon} />}
+      <span className={cls.link}>{t(item?.text || '')}</span>
     </AppLink>
   )
 })
