@@ -1,21 +1,22 @@
 import React, {
   FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string
-  value?: string
+  value?: string | number
   autoFocus?: boolean
   onChange?: (value: string) => void
+  readonly?: boolean
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
   const {
-    className, value, onChange, autoFocus, type = 'text', placeholder, ...otherProps
+    className, value, onChange, autoFocus, type = 'text', placeholder, readonly, ...otherProps
   } = props
 
   const ref = useRef<HTMLInputElement>(null)
@@ -39,6 +40,10 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     setCaretPosition(e.target.value.length)
   }
 
+  const mods: Mods = {
+    [cls.readonly]: readonly,
+  }
+
   useEffect(() => {
     if (autoFocus) {
       setIsFocused(true)
@@ -47,7 +52,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
   }, [autoFocus])
 
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
       {placeholder && (
         <div className={cls.placeholder}>
           {`${placeholder}>`}
@@ -63,8 +68,10 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
           onFocus={onFocus}
           onBlur={onBlur}
           onSelect={onSelect}
+          readOnly={readonly}
         />
-        {isFocused && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
+        {isFocused && !readonly
+          && <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />}
       </div>
 
     </div>
