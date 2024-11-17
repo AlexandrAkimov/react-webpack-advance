@@ -20,5 +20,10 @@
   "Форма авторизации": "Authorization",
   "Выйти": "Sign out",
   "Укажите валюту": "Select currency",
-  "Укажите страну": "Select country"
+  "Укажите страну": "Select country",
+  "Некорректный возраст": "incorrect age",
+  "Имя и фамилия обязательны": "Name and Lastname is required",
+  "Некоректный регион": "Incorrect region",
+  "Нет данных": "No data",
+  "Серверная ошибка": "Server error"
 }

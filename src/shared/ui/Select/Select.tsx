@@ -1,7 +1,9 @@
-import { ChangeEvent, FC, memo, useMemo } from 'react'
+import {
+  ChangeEvent, FC, memo, useMemo,
+} from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames, Mods } from "shared/lib/classNames/classNames"
-import cls from "./Select.module.scss"
+import { classNames, Mods } from 'shared/lib/classNames/classNames'
+import cls from './Select.module.scss'
 
 interface SelectOption {
   value: string
@@ -18,20 +20,19 @@ interface SelectProps {
 }
 
 export const Select: FC<SelectProps> = memo((props: SelectProps) => {
-
-  const { className, label, options, onChange, value, readonly } = props
+  const {
+    className, label, options, onChange, value, readonly,
+  } = props
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     onChange?.(e.target.value)
   }
 
   const optionList = useMemo(
-    () => {
-      return options?.map((opt: SelectOption) => (
-        <option value={opt.value} className={cls.option} key={value}>{opt.content}</option>
-      ))
-    },
-    [options]
+    () => options?.map((opt: SelectOption) => (
+      <option value={opt.value} className={cls.option} key={value}>{opt.content}</option>
+    )),
+    [options, value],
   )
   const mods: Mods = {}
   return (
@@ -52,4 +53,3 @@ export const Select: FC<SelectProps> = memo((props: SelectProps) => {
     </div>
   )
 })
-

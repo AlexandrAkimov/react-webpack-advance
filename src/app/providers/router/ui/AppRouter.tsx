@@ -1,5 +1,7 @@
 import { getUserAuthData } from 'entities/User'
-import { FC, memo, Suspense, useMemo } from 'react'
+import {
+  FC, memo, Suspense, useMemo,
+} from 'react'
 import { useSelector } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { routeConfig } from 'shared/config/routeConfig/routeConfig'
@@ -9,14 +11,14 @@ const AppRouter: FC = () => {
   const isAuth = useSelector(getUserAuthData)
 
   const routes = useMemo(
-    () => Object.values(routeConfig)?.filter(route => {
+    () => Object.values(routeConfig)?.filter((route) => {
       if (!isAuth && route.authOnly) {
         return false
       }
 
       return true
     }),
-    [isAuth]
+    [isAuth],
   )
   return (
     <Suspense fallback={<PageLoader />}>

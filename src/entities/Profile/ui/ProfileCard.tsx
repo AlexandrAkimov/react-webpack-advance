@@ -65,7 +65,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   }
 
   const mods: Mods = {
-    [cls.editing]: !readonly
+    [cls.editing]: !readonly,
   }
 
   return (

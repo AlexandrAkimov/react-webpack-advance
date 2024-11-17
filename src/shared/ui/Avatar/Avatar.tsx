@@ -1,7 +1,7 @@
 import { CSSProperties, FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames, Mods } from "shared/lib/classNames/classNames"
-import cls from "./Avatar.module.scss"
+import { classNames, Mods } from 'shared/lib/classNames/classNames'
+import cls from './Avatar.module.scss'
 
 interface AvatarProps {
   className?: string
@@ -10,7 +10,9 @@ interface AvatarProps {
   alt?: string
 }
 
-export const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
+export const Avatar: FC<AvatarProps> = ({
+  className, src, size, alt,
+}) => {
   const { t } = useTranslation()
   const mods: Mods = {}
 
@@ -27,4 +29,3 @@ export const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
     />
   )
 }
-

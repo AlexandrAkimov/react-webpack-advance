@@ -24,7 +24,9 @@ Primary.decorators = [ReduxDecorator({
 export const errorForm = Template.bind({})
 errorForm.args = {}
 errorForm.decorators = [ReduxDecorator({
-  loginForm: { username: 'admin', password: '123', error: 'Error text', isLoading: false },
+  loginForm: {
+    username: 'admin', password: '123', error: 'Error text', isLoading: false,
+  },
 })]
 
 export const loadingForm = Template.bind({})

@@ -22,11 +22,11 @@ interface TextProps {
 }
 
 export const Text: FC<TextProps> = ({
-  className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT
+  className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT,
 }) => {
   const mods: Record<string, boolean> = {
     [cls[theme]]: true,
-    [cls[align]]: true
+    [cls[align]]: true,
   }
   return (
     <div className={classNames(cls.Text, mods, [className])}>
