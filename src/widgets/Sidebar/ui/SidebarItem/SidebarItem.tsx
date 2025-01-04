@@ -25,7 +25,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
       className={cls.item}
     >
       {item && <item.icon className={cls.icon} />}
-      <span className={cls.link}>{t(item?.text || '')}</span>
+      {!collapsed && <span className={cls.link}>{t(item?.text || '')}</span>}
     </AppLink>
   )
 })

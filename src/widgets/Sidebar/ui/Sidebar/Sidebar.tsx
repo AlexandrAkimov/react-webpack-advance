@@ -1,8 +1,6 @@
 import { FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
@@ -37,7 +35,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </Button>
       <div className={cls.items}>
         {SidebarItemsList.map((item) => (
-          <SidebarItem item={item} key={item.path} />
+          <SidebarItem item={item} key={item.path} collapsed={collapsed} />
         ))}
       </div>
       <div className={cls.switchers}>
