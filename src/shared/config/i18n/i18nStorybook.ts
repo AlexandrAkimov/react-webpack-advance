@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
 const supportedLngs = ['en', 'ru']
-const ns = ['common']
+const ns = ['about']
 i18nStorybook
   .use(LanguageDetector)
   .use(initReactI18next)

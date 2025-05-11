@@ -54,6 +54,9 @@ module.exports = {
     'no-undef': 'off',
     quotes: [2, 'single'],
     semi: ['error', 'never'],
+    "react/jsx-max-props-per-line": ["error", { "maximum": 1 }],
+    "react/jsx-first-prop-new-line": ["error", "never"],
+    "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
   },
   globals: {
     __IS_DEV__: true,

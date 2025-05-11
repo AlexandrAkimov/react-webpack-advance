@@ -25,8 +25,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(({
   }, [onChange])
 
   return (
-    <Select
-      className={classNames('', {}, [className])}
+    <Select className={classNames('', {}, [className])}
       label={t('Укажите валюту')}
       options={options}
       onChange={onChangeHandler}

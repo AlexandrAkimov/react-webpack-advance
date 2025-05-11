@@ -19,8 +19,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
     return null
   }
   return (
-    <AppLink
-      theme={AppLinkTheme.SECONDARY}
+    <AppLink theme={AppLinkTheme.SECONDARY}
       to={item?.path || ''}
       className={cls.item}
     >

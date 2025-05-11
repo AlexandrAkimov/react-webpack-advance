@@ -88,18 +88,18 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   }, [dispatch])
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}
+      removeAfterUnmount
+    >
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors?.map((error) => (
-          <Text
-            theme={TextTheme.ERROR}
+          <Text theme={TextTheme.ERROR}
             key={error}
             text={validateErrorTranslates[error]}
           />
         ))}
-        <ProfileCard
-          data={form}
+        <ProfileCard data={form}
           isLoading={isLoading}
           error={error}
           readonly={readonly}

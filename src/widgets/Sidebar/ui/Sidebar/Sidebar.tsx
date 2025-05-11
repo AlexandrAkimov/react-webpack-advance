@@ -17,11 +17,11 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
   const onToggle = () => setCollapsed((prev) => !prev)
 
-  const { t } = useTranslation()
+  const { t } = useTranslation('main')
   return (
     <div
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
       data-testid="sidebar"
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <Button
         data-testid="sidebar-toggle"
@@ -35,12 +35,17 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </Button>
       <div className={cls.items}>
         {SidebarItemsList.map((item) => (
-          <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+          <SidebarItem item={item}
+            key={item.path}
+            collapsed={collapsed}
+          />
         ))}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={cls.lang} />
+        <LangSwitcher short={collapsed}
+          className={cls.lang}
+        />
       </div>
     </div>
   )

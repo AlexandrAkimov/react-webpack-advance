@@ -54,8 +54,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   if (error) {
     return (
       <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
-        <Text
-          theme={TextTheme.ERROR}
+        <Text theme={TextTheme.ERROR}
           title={t('Произошла ошибка')}
           text={t('попробуйте обновить страницу')}
           align={TextAlign.CENTER}
@@ -76,56 +75,48 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             <Avatar src={data?.avatar} />
           </div>
         )}
-        <Input
-          value={data?.first}
+        <Input value={data?.first}
           placeholder={t('Ваше имя')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeFirstname}
         />
-        <Input
-          value={data?.lastName}
+        <Input value={data?.lastName}
           placeholder={t('Ваше фамилия')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeLastname}
         />
-        <Input
-          value={data?.age}
+        <Input value={data?.age}
           placeholder={t('Ваш возраст')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeAge}
         />
-        <Input
-          value={data?.city}
+        <Input value={data?.city}
           placeholder={t('Город')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeCity}
         />
-        <Input
-          value={data?.username}
+        <Input value={data?.username}
           placeholder={t('Имя пользователя')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeUsername}
         />
-        <Input
-          value={data?.avatar}
+        <Input value={data?.avatar}
           placeholder={t('Аватар')}
           className={cls.input}
           readonly={readonly}
           onChange={onChangeAvatar}
         />
-        <CurrencySelect
-          className={cls.input}
+        <CurrencySelect className={cls.input}
           value={data?.currency}
           onChange={onChangeCurrency}
           readonly={readonly}
         />
-        <CountrySelect
-          className={cls.input}
+        <CountrySelect className={cls.input}
           value={data?.country}
           onChange={onChangeCountry}
           readonly={readonly}

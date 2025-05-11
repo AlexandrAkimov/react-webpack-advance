@@ -24,8 +24,7 @@ export const CountrySelect: FC<CountrySelectProps> = memo(({
   }, [onChange])
 
   return (
-    <Select
-      className={classNames('', {}, [className])}
+    <Select className={classNames('', {}, [className])}
       label={t('Укажите страну')}
       options={options}
       onChange={onChangeHandler}

@@ -17,8 +17,7 @@ export const ReduxDecorator = (
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
 ) => function (StoryComponent: Story) {
   return (
-    <StoreProvider
-      initialState={state}
+    <StoreProvider initialState={state}
       asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
     >
       <StoryComponent />
