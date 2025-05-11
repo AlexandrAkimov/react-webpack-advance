@@ -26,13 +26,13 @@ export const SidebarItemsList: SidebarItemType[] = [
   },
   {
     path: RoutePath.profile,
-    text: 'ddd',//i18next.t('Profile', { ns: 'about' }),
+    text: i18next.t('Profile', { ns: 'about' }),
     icon: ProfileIcon,
     authOnly: true,
   },
   {
     path: RoutePath.articles,
-    text: 'dwd',//i18next.t('Статьи', { ns: 'about' }),
+    text: i18next.t('Статьи', { ns: 'about' }),
     icon: ArticleIcon,
     authOnly: true,
   },
