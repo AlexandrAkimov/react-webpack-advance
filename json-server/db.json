@@ -101,14 +101,23 @@
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://avatars.githubusercontent.com/u/46198243?s=400&u=a0e5f7b6b9da86599e8571d4e6c424f771028abb&v=4"
+    },
+    {
+      "id": "2",
+      "username": "user 1",
+      "password": "123",
+      "role": "USER",
+      "avatar": "https://s.digitalocean.ru/627/upload/1704804178_ZDWsxDYgwxo.jpg"
     }
   ],
   "profile": {

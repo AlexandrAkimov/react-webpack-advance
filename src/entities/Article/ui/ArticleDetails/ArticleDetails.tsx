@@ -30,6 +30,7 @@ import {
   ArticleImageBlockComponent,
 } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 interface ArticleDetailsProps {
   className?: string
@@ -140,9 +141,9 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     )
   }
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(fetchArticleById(id))
-  }, [dispatch, id])
+  })
 
   return (
     <DynamicModuleLoader reducers={reducers}
