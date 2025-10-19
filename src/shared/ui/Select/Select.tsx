@@ -30,7 +30,8 @@ export const Select: FC<SelectProps> = memo((props: SelectProps) => {
 
   const optionList = useMemo(
     () => options?.map((opt: SelectOption) => (
-      <option value={opt.value}
+      <option
+        value={opt.value}
         className={cls.option}
         key={opt.value}
       >
@@ -47,7 +48,8 @@ export const Select: FC<SelectProps> = memo((props: SelectProps) => {
           {`${label}>`}
         </span>
       )}
-      <select className={cls.select}
+      <select
+        className={cls.select}
         value={value}
         onChange={onChangeHandler}
         disabled={readonly}

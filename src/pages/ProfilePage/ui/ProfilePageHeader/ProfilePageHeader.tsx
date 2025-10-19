@@ -32,13 +32,15 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <Text title={t('Профиль')} />
       <div>
-        <Button className={cls.editBtn}
+        <Button
+          className={cls.editBtn}
           theme={!readonly ? ThemeButton.OUTLINE_RED : ThemeButton.OUTLINE}
           onClick={readonly ? onEdit : onCancelEdit}
         >
           {t(`${readonly ? 'Редактировать' : 'Отменить'}`)}
         </Button>
-        <Button className={cls.editBtn}
+        <Button
+          className={cls.editBtn}
           onClick={onSave}
         >
           {t('Сохранить')}

@@ -102,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "t23t2t2",
+      "id": "QAhsiHw"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "erget45t",
+      "id": "OAJj-TO"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "nu chto je",
+      "id": "Azssuo4"
     }
   ],
   "users": [
@@ -120,14 +138,28 @@
       "avatar": "https://s.digitalocean.ru/627/upload/1704804178_ZDWsxDYgwxo.jpg"
     }
   ],
-  "profile": {
-    "first": "Alexandr",
-    "lastName": "Akimov",
-    "age": 35,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Ryazan",
-    "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/46198243?s=400&u=a0e5f7b6b9da86599e8571d4e6c424f771028abb&v=4"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Alexandr",
+      "lastName": "Akimov",
+      "age": 36,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Ryazan",
+      "username": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/46198243?s=400&u=a0e5f7b6b9da86599e8571d4e6c424f771028abb&v=4"
+    },
+    {
+      "id": "2",
+      "first": "Alexey",
+      "lastName": "Akimov",
+      "age": 37,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/41586304?v=4"
+    }
+  ]
 }

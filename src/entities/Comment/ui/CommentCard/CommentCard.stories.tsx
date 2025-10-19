@@ -8,8 +8,8 @@ export default {
   component: CommentCard,
   argTypes: {
     backgroundColor: {
-      control: 'color'
-    }
+      control: 'color',
+    },
   },
 } as ComponentMeta<typeof CommentCard>
 

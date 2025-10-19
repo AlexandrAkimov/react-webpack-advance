@@ -18,7 +18,8 @@ export const Skeleton: FC<ISkeleton> = memo(({
     borderRadius: border,
   }
   return (
-    <div style={styles}
+    <div
+      style={styles}
       className={classNames(cls.Skeleton, {}, [className])}
     />
   )

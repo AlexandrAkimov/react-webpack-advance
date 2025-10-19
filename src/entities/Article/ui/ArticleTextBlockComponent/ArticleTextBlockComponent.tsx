@@ -16,12 +16,14 @@ export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = mem
     return (
       <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
         {block?.title && (
-          <Text title={block.title}
+          <Text
+            title={block.title}
             className={cls.title}
           />
         )}
         {block?.paragraphs?.map((paragraph) => (
-          <Text key={paragraph}
+          <Text
+            key={paragraph}
             text={paragraph}
             className={cls.paragraph}
           />

@@ -59,7 +59,8 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         </div>
       )}
       <div className={cls.caretWrapper}>
-        <input ref={ref}
+        <input
+          ref={ref}
           type={type}
           value={value}
           onChange={onChangeHandler}
@@ -71,7 +72,8 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         />
         {isFocused && !readonly
           && (
-          <span className={cls.caret}
+          <span
+            className={cls.caret}
             style={{ left: `${caretPosition * 9}px` }}
           />
           )}

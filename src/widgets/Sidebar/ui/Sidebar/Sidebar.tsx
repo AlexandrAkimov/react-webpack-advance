@@ -19,10 +19,12 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
   const { t } = useTranslation('main')
   return (
-    <div data-testid="sidebar"
+    <div
+      data-testid="sidebar"
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
-      <Button data-testid="sidebar-toggle"
+      <Button
+        data-testid="sidebar-toggle"
         onClick={onToggle}
         className={cls.collapsedBtn}
         theme={ThemeButton.BACKGROUND_INVERTED}
@@ -33,7 +35,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </Button>
       <div className={cls.items}>
         {SidebarItemsList.map((item) => (
-          <SidebarItem item={item}
+          <SidebarItem
+            item={item}
             key={item.path}
             collapsed={collapsed}
           />
@@ -41,7 +44,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher short={collapsed}
+        <LangSwitcher
+          short={collapsed}
           className={cls.lang}
         />
       </div>

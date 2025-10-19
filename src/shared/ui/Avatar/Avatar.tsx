@@ -21,7 +21,8 @@ export const Avatar: FC<AvatarProps> = ({
     height: size || 100,
   }), [size])
   return (
-    <img src={src}
+    <img
+      src={src}
       alt={alt}
       style={styles}
       className={classNames(cls.Avatar, mods, [className])}

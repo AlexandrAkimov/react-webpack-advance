@@ -17,7 +17,8 @@ const AppRouter: FC = () => {
     )
 
     return (
-      <Route key={route.path}
+      <Route
+        key={route.path}
         path={route.path}
         element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
       />

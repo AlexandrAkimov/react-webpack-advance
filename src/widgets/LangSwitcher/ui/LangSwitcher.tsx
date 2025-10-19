@@ -16,7 +16,8 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
   }
   return (
-    <Button className={classNames(cls.LangSwitcher, {}, [className])}
+    <Button
+      className={classNames(cls.LangSwitcher, {}, [className])}
       theme={ThemeButton.CLEAR}
       onClick={toggleLn}
     >

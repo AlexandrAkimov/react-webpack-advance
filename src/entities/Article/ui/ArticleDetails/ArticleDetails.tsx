@@ -18,6 +18,7 @@ import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { t } from 'i18next'
 import { useTranslation } from 'react-i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import cls from './ArticleDetails.module.scss'
 import {
   getArticleDetailsIsLoading,
@@ -30,7 +31,6 @@ import {
   ArticleImageBlockComponent,
 } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 interface ArticleDetailsProps {
   className?: string
@@ -52,21 +52,24 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     switch (block.type) {
       case ArticleBlockType.CODE:
         return (
-          <ArticleCodeBlockComponent key={block.id}
+          <ArticleCodeBlockComponent
+            key={block.id}
             className={cls.block}
             block={block}
           />
         )
       case ArticleBlockType.IMG:
         return (
-          <ArticleImageBlockComponent key={block.id}
+          <ArticleImageBlockComponent
+            key={block.id}
             block={block}
             className={cls.block}
           />
         )
       case ArticleBlockType.TEXT:
         return (
-          <ArticleTextBlockComponent key={block.id}
+          <ArticleTextBlockComponent
+            key={block.id}
             block={block}
             className={cls.block}
           />
@@ -81,24 +84,29 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={cls.avatar}
+        <Skeleton
+          className={cls.avatar}
           width={200}
           height={200}
           border="50%"
         />
-        <Skeleton className={cls.title}
+        <Skeleton
+          className={cls.title}
           width={300}
           height={32}
         />
-        <Skeleton className={cls.skeleton}
+        <Skeleton
+          className={cls.skeleton}
           width={600}
           height={24}
         />
-        <Skeleton className={cls.skeleton}
+        <Skeleton
+          className={cls.skeleton}
           width="100%"
           height={200}
         />
-        <Skeleton className={cls.skeleton}
+        <Skeleton
+          className={cls.skeleton}
           width="100%"
           height={200}
         />
@@ -106,7 +114,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     )
   } else if (error) {
     content = (
-      <Text title={t('Произошла ошибка при загрузке статьи')}
+      <Text
+        title={t('Произошла ошибка при загрузке статьи')}
         align={TextAlign.CENTER}
       />
     )
@@ -114,24 +123,28 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
     content = (
       <>
         <div className={cls.articleWrapper}>
-          <Avatar size={200}
+          <Avatar
+            size={200}
             src={article?.img}
             className={cls.avatar}
           />
         </div>
-        <Text title={article?.title}
+        <Text
+          title={article?.title}
           text={article?.subtitle}
           className={cls.title}
           size={TextSize.L}
         />
         <div className={cls.articleInfo}>
-          <Icon Svg={EyeIcon}
+          <Icon
+            Svg={EyeIcon}
             className={cls.icon}
           />
           <Text text={String(article?.views)} />
         </div>
         <div className={cls.articleInfo}>
-          <Icon Svg={CalendarIcon}
+          <Icon
+            Svg={CalendarIcon}
             className={cls.icon}
           />
           <Text text={article?.createdAt} />
@@ -146,7 +159,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
   })
 
   return (
-    <DynamicModuleLoader reducers={reducers}
+    <DynamicModuleLoader
+      reducers={reducers}
       removeAfterUnmount
     >
       <div className={classNames(cls.ArticleDetails, {}, [className])}>
