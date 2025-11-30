@@ -120,6 +120,12 @@
       "userId": "2",
       "text": "nu chto je",
       "id": "Azssuo4"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет мир",
+      "id": "oWGKglz"
     }
   ],
   "users": [
@@ -135,7 +141,7 @@
       "username": "user 1",
       "password": "123",
       "role": "USER",
-      "avatar": "https://s.digitalocean.ru/627/upload/1704804178_ZDWsxDYgwxo.jpg"
+      "avatar": "https://avatars.githubusercontent.com/u/41586304?v=4"
     }
   ],
   "profile": [
@@ -152,7 +158,7 @@
     },
     {
       "id": "2",
-      "first": "Alexey",
+      "first": "Alexey cosinus0",
       "lastName": "Akimov",
       "age": 37,
       "currency": "RUB",

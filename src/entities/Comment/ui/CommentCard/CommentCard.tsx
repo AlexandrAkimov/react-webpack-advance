@@ -10,14 +10,14 @@ import { Comment } from '../../model/types/Comment'
 
 interface CommentCardProps {
   className?: string
-  comment: Comment
+  comment?: Comment
   isLoading?: boolean
 }
 
 export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isLoading }) => {
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentCard, {}, [className])}>
+      <div className={classNames(cls.CommentCard, {}, [className, cls.isLoading])}>
         <div className={cls.header}>
           <Skeleton
             width={30}
@@ -38,6 +38,11 @@ export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isL
       </div>
     )
   }
+
+  if (!comment) {
+    return null
+  }
+
   return (
     <div className={classNames(cls.CommentCard, {}, [className])}>
       <AppLink
@@ -45,10 +50,10 @@ export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isL
         className={cls.header}
       >
         {comment.user.avatar && (
-        <Avatar
-          size={30}
-          src={comment.user.avatar}
-        />
+          <Avatar
+            size={30}
+            src={comment.user.avatar}
+          />
         )}
         <Text
           title={comment?.user?.username}

@@ -11,17 +11,28 @@ interface CommentListProps {
   isLoading?: boolean
 }
 
-export const CommentList: FC<CommentListProps> = memo(({ className, comments, isLoading }) => (
-  <div className={classNames(cls.CommentList, {}, [className])}>
-    {comments?.length ? (
-      comments?.map((comment) => (
-        <CommentCard
-          key={comment.id}
-          comment={comment}
-          className={cls.comment}
-          isLoading={isLoading}
-        />
-      ))
-    ) : (<Text text="Комментарии отсутствуют" />)}
-  </div>
-))
+export const CommentList: FC<CommentListProps> = memo(({ className, comments, isLoading }) => {
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.CommentList, {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    )
+  }
+  return (
+    <div className={classNames(cls.CommentList, {}, [className])}>
+      {comments?.length ? (
+        comments?.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            comment={comment}
+            className={cls.comment}
+            isLoading={isLoading}
+          />
+        ))
+      ) : (<Text text="Комментарии отсутствуют" />)}
+    </div>
+  )
+})
